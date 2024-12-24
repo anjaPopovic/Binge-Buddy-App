@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": "58bf",
+      "username": "user1",
+      "email": "user1@gmail.com",
+      "password": "password",
+      "role": "user"
+    },
+    {
+      "id": "ab14",
+      "username": "user2",
+      "email": "user2@gmail.com",
+      "password": "password1",
+      "role": "user"
+    },
+    {
+      "id": "e105",
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "password": "password",
+      "role": "admin"
+    },
+    {
+      "id": "973a",
+      "username": "user3",
+      "email": "user3@gmail.com",
+      "password": "password3",
+      "role": "user"
+    }
+  ]
+}
