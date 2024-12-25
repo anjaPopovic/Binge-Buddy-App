@@ -54,6 +54,7 @@ const Header = ({ isAuthenticated, role }) => {
 
                     {isAuthenticated && role === "admin" && (
                         <>
+                            <li><Link to="/adminDashboard" style={linkStyle}>Dashboard</Link></li>
                             <li><Link to="/allUsers" style={linkStyle}>View All Users</Link></li>
                             <li><Link to="/requests" style={linkStyle}>View Requests</Link></li>
                         </>
