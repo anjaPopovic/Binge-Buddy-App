@@ -1,0 +1,59 @@
+.requests-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.requests-table {
+    width: 80%;
+    max-width: 800px;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.requests-table th,
+.requests-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.requests-table th {
+    background-color: #db6c84;
+    color: white;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.requests-table td {
+    font-size: 1em;
+    color: #444;
+}
+
+.requests-button {
+    padding: 8px 15px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.requests-button:hover {
+    opacity: 0.9;
+}
+
+.requests-button-approve {
+    background-color: darkgreen; /* Green for approve */
+}
+
+.requests-button-reject {
+    background-color: darkred; /* Red for reject */
+}
