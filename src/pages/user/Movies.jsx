@@ -1,51 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ResultsCard from "../../components/ResultsCard";
 import Header from "../../components/Header";
 import searchMovies from "../../services/SearchMovies";
 import "../../styles/ResultsCard.css";
 
 const Movies = () => {
-  const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
+  const [movieQuery, setMovieQuery] = useState(() => {
+    return sessionStorage.getItem("movieSearchQuery") || "";
+  });
+  const [movieResults, setMovieResults] = useState(() => {
+    const savedResults = sessionStorage.getItem("movieSearchResults");
+    return savedResults ? JSON.parse(savedResults) : [];
+  });
+
+  useEffect(() => {
+    if (!location.pathname.includes("details")) {
+      setMovieQuery("");
+      sessionStorage.removeItem("movieSearchQuery");
+      sessionStorage.removeItem("movieSearchResults");
+    }
+  }, [location.pathname]);
 
   const handleInputChange = (e) => {
-    setQuery(e.target.value);
-    fetchMovies(e.target.value);
+    const newQuery = e.target.value;
+    setMovieQuery(newQuery);
+    sessionStorage.setItem("movieSearchQuery", newQuery);
+    fetchMovies(newQuery);
   };
 
   const fetchMovies = async (query) => {
     if (query.trim() === "") {
-      setResults([]);
+      setMovieResults([]);
+      sessionStorage.setItem("movieSearchResults", JSON.stringify([]));
       return;
     }
     const movies = await searchMovies(query);
-    setResults(movies);
+    setMovieResults(movies);
+    sessionStorage.setItem("movieSearchResults", JSON.stringify(movies));
   };
 
   return (
     <>
-      <Header 
-        isAuthenticated={true} 
-        role="user" 
+      <Header
+        isAuthenticated={true}
+        role="user"
       />
       <div className="add-page">
         <div className="input-wrapper">
           <input
             type="text"
             placeholder="Search for a movie"
-            value={query}
+            value={movieQuery}
             onChange={handleInputChange}
           />
         </div>
 
-        {results.length > 0 && (
+        {movieResults.length > 0 && (
           <div className="results-container">
-            {results.map((movie) => (
-              <ResultsCard
-                key={movie.id} 
-                contentType={movie} 
-                isInList={false} 
-              />
+            {movieResults.map((movie) => (
+              <ResultsCard key={movie.id} contentType={movie} isInList={false} />
             ))}
           </div>
         )}
