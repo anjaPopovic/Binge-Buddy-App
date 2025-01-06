@@ -13,7 +13,6 @@ const AllUsers = () => {
                 const filtered = response.data
                     .filter((user) => user.role === "user")
                     .map(({ id, password, ...rest }) => rest);
-                console.log(filtered);
                 setData(filtered);
             })
             .catch((error) => {
@@ -42,8 +41,8 @@ const AllUsers = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.map((user) => (
-                            <tr key={user.id}>
+                        {data.map((user, index) => (
+                            <tr key={index}>
                                 <td>{user.username}</td>
                                 <td>{user.email}</td>
                                 <td>{user.role}</td>
