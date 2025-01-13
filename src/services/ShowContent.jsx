@@ -1,52 +1,27 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
+import { useFetch } from "../hooks/useFetch";
 import ResultsCard from "../components/ResultsCard";
-import "../styles/ResultsCard.css";
 
 const ShowContent = () => {
-    const [newContent, setNewContent] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const { data: newContent, loading, error } = useFetch("http://localhost:5178/content");
 
-    useEffect(() => {
-        const fetchNewContent = async () => {
-            try {
-                const response = await axios.get(`http://localhost:5178/content`);
-                setNewContent(response.data.results || response.data);
-            } catch (err) {
-                console.error(err);
-                setError("Failed to fetch content.");
-            } finally {
-                setLoading(false);
-            }
-        }
-        fetchNewContent();
-    }, []);
-
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
-    if (error) {
-        return <div>{error}</div>;
-    }
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error}</div>;
 
     return (
-        <div className="home-page">
+        <div>
             <h2>Users have also requested...</h2>
-
-            <div className="results-container">
-                {newContent.length > 0 ? (
-                    newContent.map((item, index) => (
-                        <ResultsCard key={index} contentType={item} />
+            <div>
+                {newContent && newContent.length > 0 ? (
+                    newContent.map((item) => (
+                        <ResultsCard key={item.id} contentType={item} />
                     ))
                 ) : (
-                    <div>No content available.</div>
+                    <p>No content available</p>
                 )}
             </div>
         </div>
     );
-
 };
 
 export default ShowContent;
