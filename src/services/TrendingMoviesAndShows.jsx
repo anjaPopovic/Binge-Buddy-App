@@ -1,36 +1,17 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import ResultsCard from "../components/ResultsCard";
 import "../styles/ResultsCard.css";
+import { useFetch } from "../hooks/useFetch";
 
 const TrendingContent = ({ type, title }) => {
-  const [trendingContent, setTrendingContent] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchTrendingContent = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.themoviedb.org/3/trending/${type}/day?api_key=eeb1c44fe650e74018a688a685902f5e`
-        );
-        
-        setTrendingContent(response.data.results);
-      } catch (err) {
-        setError(`Failed to fetch trending ${type}`);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchTrendingContent();
-  }, [type]);
+  const { data: trendingContent, loading, error } = useFetch(`https://api.themoviedb.org/3/trending/${type}/day?api_key=${import.meta.env.VITE_API_TMDB_KEY}`);
 
   if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
     <div className="home-page">
-      <h2>{title}</h2>
+      <h2 style={{ "marginLeft": "50px" }}>{title}</h2>
       <div className="results-container">
         {trendingContent.slice(0, 5).map((content) => (
           <ResultsCard key={content.id} contentType={content} />
