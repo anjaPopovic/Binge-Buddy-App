@@ -1,51 +1,47 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import Header from "../../components/Header";
 import "../../styles/Requests.css";
 import { useNavigate } from "react-router-dom";
+import { useFetch } from "../../hooks/useFetch";
 
 const Requests = () => {
-    const [requests, setRequests] = useState([]);
     const navigate = useNavigate();
 
-    const getAllRequests = async () => {
-        const response = await axios.get("http://localhost:5177/requests");
-        setRequests(response.data);
-    };
-
-    useEffect(() => {
-        getAllRequests();
-    }, []);
+    const { data: requests = [], loading, error } = useFetch("http://localhost:5177/requests");
 
     const handleApprove = async (id) => {
         try {
             const requestToApprove = requests.find((req) => req.id === id);
-            await axios.patch(`http://localhost:5177/requests/${id}`, { status: "approved" });
-            setRequests((prevRequests) =>
-                prevRequests.map((req) =>
-                    req.id === id ? { ...req, status: "approved" } : req
-                )
-            );
-            navigate("/addContent", { state: requestToApprove }); 
+            navigate("/addContent", { state: requestToApprove });
         } catch (error) {
-            console.error("Error updating request:", error);
+            console.error("Error navigating to Add Content:", error);
             alert("Failed to approve request.");
         }
     };
-    
+
     const handleReject = async (id) => {
         try {
-            await axios.patch(`http://localhost:5177/requests/${id}`, { status: "rejected" });
-            setRequests((prevRequests) =>
-                prevRequests.map((req) =>
-                    req.id === id ? { ...req, status: "rejected" } : req
-                )
-            );
+            await fetch(`http://localhost:5177/requests/${id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ status: "rejected" }),
+            });
+            alert("Request rejected successfully!");
         } catch (error) {
             console.error("Error rejecting request:", error);
             alert("Failed to reject request.");
         }
     };
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error loading requests: {error.message || error}</div>;
+    }
 
     return (
         <>
@@ -66,8 +62,8 @@ const Requests = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {requests.map((request, index) => (
-                            <tr key={index}>
+                        {requests.map((request) => (
+                            <tr key={request.id}>
                                 <td>{request.title}</td>
                                 <td>{request.country}</td>
                                 <td>{request.contentType}</td>
