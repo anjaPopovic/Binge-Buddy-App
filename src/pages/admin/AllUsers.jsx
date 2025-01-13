@@ -1,36 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../../styles/AllUsers.css";
 import Header from "../../components/Header";
-import axios from "axios";
+import { useFetch } from "../../hooks/useFetch";
 
 const AllUsers = () => {
-    const [data, setData] = useState([]);
+    const { data: users, loading, error } = useFetch("http://localhost:5175/users");
 
-    const getAllUsers = () => {
-        axios
-            .get("http://localhost:5175/users")
-            .then((response) => {
-                const filtered = response.data
-                    .filter((user) => user.role === "user")
-                    .map(({ id, password, ...rest }) => rest);
-                setData(filtered);
-            })
-            .catch((error) => {
-                console.error("There was an error fetching the data:", error);
-            });
-    };
+    const filteredUsers = users
+        ?.filter((user) => user.role === "user")
+        .map(({ id, password, ...rest }) => rest);
 
-    useEffect(() => {
-        getAllUsers();
-    }, []);
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error loading users: {error.message || error}</div>;
+    }
 
     return (
         <>
-            <Header 
-                isAuthenticated={true} 
-                role="admin" 
+            <Header
+                isAuthenticated={true}
+                role="admin"
             />
-            <h2 style={{ "textAlign": "center", "margin": "100px" }}>All Users</h2>
+            <h2 style={{ textAlign: "center", marginTop: "50px" }}>All Users</h2>
             <div className="users-table-container">
                 <table className="users-table">
                     <thead>
@@ -41,7 +35,7 @@ const AllUsers = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.map((user, index) => (
+                        {filteredUsers.map((user, index) => (
                             <tr key={index}>
                                 <td>{user.username}</td>
                                 <td>{user.email}</td>
