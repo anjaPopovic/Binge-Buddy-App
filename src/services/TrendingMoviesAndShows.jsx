@@ -11,7 +11,7 @@ const TrendingContent = ({ type, title }) => {
 
   return (
     <div className="home-page">
-      <h2 style={{ "marginLeft": "50px" }}>{title}</h2>
+      <h2>{title}</h2>
       <div className="results-container">
         {trendingContent.slice(0, 5).map((content) => (
           <ResultsCard key={content.id} contentType={content} />
