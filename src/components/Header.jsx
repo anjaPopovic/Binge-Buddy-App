@@ -1,70 +1,65 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "../index.css";
-import "../styles/Header.css";
+import {
+    HeaderTitle,
+    SlideoutSidebar,
+    SidebarNav,
+    SidebarLink,
+    MenuIcon,
+    CloseMenu,
+    SignOutButton
+} from "../styles/Header";
 
 const Header = ({ isAuthenticated, role }) => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
-    }
+    };
 
     const handleSignOut = () => {
         localStorage.removeItem("isAuthenticated");
         localStorage.removeItem("email");
         localStorage.removeItem("username");
         localStorage.removeItem("role");
-
-        {/*navigate("/");
-        window.localStorage.clear();*/}
+        localStorage.clear();
         alert("You have been logged out!");
-        window.location.href = "./";
-
-    };
-
-    const linkStyle = {
-        margin: "1rem",
-        textDecoration: "none",
-        color: 'white'
+        window.location.reload();
     };
 
     return (
-        <header>
-            <div className="logo">
-                <h1>Binge Buddy</h1>
-            </div>
-            <button className="hamburger-menu" onClick={toggleMenu}>
-                ☰
-            </button>
-            <nav>
-                <ul className={menuOpen ? "nav-links open" : "nav-links"}>
-                    {isAuthenticated && role === "user" && (
-                        <>
-                            <li><Link to="/home" style={linkStyle}>Home</Link></li>
-                            <li><Link to="/tvShows" style={linkStyle}>TV Shows</Link></li>
-                            <li><Link to="/movies" style={linkStyle}>Movies</Link></li>
-                            <li><Link to="/watchList" style={linkStyle}>Watch List</Link></li>
-                            <li><Link to="/alreadyWatched" style={linkStyle}>Already Watched</Link></li>
-                            <li><Link to="/addRequest" style={linkStyle}>Add Request</Link></li>
-                        </>
-
-                    )
-                    }
-
-                    {isAuthenticated && role === "admin" && (
-                        <>
-                            <li><Link to="/adminDashboard" style={linkStyle}>Dashboard</Link></li>
-                            <li><Link to="/allUsers" style={linkStyle}>View All Users</Link></li>
-                            <li><Link to="/requests" style={linkStyle}>View Requests</Link></li>
-                        </>
-                    )}
-                    <li><button onClick={handleSignOut} className="signout-btn">Sign Out</button></li>
-
-                </ul>
-            </nav>
-        </header>
+        <div>
+            <HeaderTitle>Binge Buddy</HeaderTitle>
+            <MenuIcon onClick={toggleMenu} hidden={menuOpen}>☰</MenuIcon>
+            <SlideoutSidebar $isOpen={menuOpen}>
+                {menuOpen && <CloseMenu onClick={toggleMenu}>✖</CloseMenu>}
+                <SidebarNav>
+                    <ul>
+                        {isAuthenticated && role === "user" && (
+                            <>
+                                <li><SidebarLink to="/home" onClick={toggleMenu}>Home</SidebarLink></li>
+                                <li><SidebarLink to="/tvShows" onClick={toggleMenu}>TV Shows</SidebarLink></li>
+                                <li><SidebarLink to="/movies" onClick={toggleMenu}>Movies</SidebarLink></li>
+                                <li><SidebarLink to="/watchList" onClick={toggleMenu}>Watch List</SidebarLink></li>
+                                <li><SidebarLink to="/alreadyWatched" onClick={toggleMenu}>Already Watched</SidebarLink></li>
+                                <li><SidebarLink to="/addRequest" onClick={toggleMenu}>Add Request</SidebarLink></li>
+                            </>
+                        )}
+                        {isAuthenticated && role === "admin" && (
+                            <>
+                                <li><SidebarLink to="/adminDashboard" onClick={toggleMenu}>Dashboard</SidebarLink></li>
+                                <li><SidebarLink to="/allUsers" onClick={toggleMenu}>View All Users</SidebarLink></li>
+                                <li><SidebarLink to="/requests" onClick={toggleMenu}>View Requests</SidebarLink></li>
+                                <li><SidebarLink to="/addContent" onClick={toggleMenu}>Add Content</SidebarLink></li>
+                            </>
+                        )}
+                        <li>
+                            <SignOutButton onClick={handleSignOut}>Sign Out</SignOutButton>
+                        </li>
+                    </ul>
+                </SidebarNav>
+            </SlideoutSidebar>
+        </div>
     );
-}
-
-export default Header; 
+};
+export default Header;
