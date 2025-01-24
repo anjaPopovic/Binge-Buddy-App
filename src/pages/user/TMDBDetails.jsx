@@ -2,7 +2,10 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Controls from "../../components/Controls";
 import { useFetch } from "../../hooks/useFetch";
-import "../../styles/ResultsCard.css";
+import {
+    DetailsPage
+}
+    from "../../styles/ResultsCard";
 
 const TMDBDetails = () => {
     const { id, type } = useParams();
@@ -21,7 +24,7 @@ const TMDBDetails = () => {
     const isMovie = type === "movie";
 
     return (
-        <div className="details-page">
+        <DetailsPage>
             <h1>{isMovie ? content.title : content.name}</h1>
             <p>
                 <strong>{isMovie ? "Release Date" : "First Air Date"}:</strong>{" "}
@@ -52,7 +55,7 @@ const TMDBDetails = () => {
             )}
 
             <Controls content={content} isInList={false} />
-        </div>
+        </DetailsPage>
     );
 };
 
