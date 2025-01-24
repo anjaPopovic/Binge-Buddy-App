@@ -1,6 +1,13 @@
 import React from "react";
 import Header from "../../components/Header";
-import "../../styles/Requests.css";
+import {
+    RequestsContainer,
+    RequestsTable,
+    RequestsButtonsContainer,
+    ApproveButton,
+    RejectButton
+}
+    from "../../styles/Requests";
 import { useNavigate } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
 
@@ -49,8 +56,8 @@ const Requests = () => {
             <h2 style={{ textAlign: "center", marginTop: "100px", fontSize: "1.8em" }}>
                 TV Show/Movie Requests
             </h2>
-            <div className="requests-container">
-                <table className="requests-table">
+            <RequestsContainer>
+                <RequestsTable>
                     <thead>
                         <tr>
                             <th>Title</th>
@@ -70,28 +77,26 @@ const Requests = () => {
                                 <td>{request.releaseYear}</td>
                                 <td>{request.status}</td>
                                 <td>
-                                    <div className="requests-buttons-container">
-                                        <button
-                                            className="requests-button-approve"
+                                    <RequestsButtonsContainer>
+                                        <ApproveButton
                                             onClick={() => handleApprove(request.id)}
                                             disabled={request.status === "rejected" || request.status === "approved"}
                                         >
                                             Approve
-                                        </button>
-                                        <button
-                                            className="requests-button-reject"
+                                        </ApproveButton>
+                                        <RejectButton
                                             onClick={() => handleReject(request.id)}
                                             disabled={request.status === "approved" || request.status === "rejected"}
                                         >
                                             Reject
-                                        </button>
-                                    </div>
+                                        </RejectButton>
+                                    </RequestsButtonsContainer>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
-                </table>
-            </div>
+                </RequestsTable>
+            </RequestsContainer>
         </>
     );
 };
