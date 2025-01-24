@@ -1,8 +1,12 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import Controls from "../../components/Controls";
-import "../../styles/ResultsCard.css";
+import {
+    DetailsPage
+} 
+from "../../styles/ResultsCard";
 import { useFetch } from "../../hooks/useFetch";
+
 
 const LocalDetails = () => {
     const { id } = useParams();
@@ -19,7 +23,7 @@ const LocalDetails = () => {
     }
 
     return (
-        <div className="details-page">
+        <DetailsPage>
             <h1>{content.title}</h1>
             <p><strong>Release Date:</strong> {content.releaseDate || "N/A"}</p>
             <p><strong>Description:</strong> {content.description || "No description available."}</p>
@@ -28,7 +32,7 @@ const LocalDetails = () => {
             {content.seasons && <p><strong>Seasons:</strong> {content.seasons}</p>}
             {content.episodes && <p><strong>Episodes:</strong> {content.episodes}</p>}
             <Controls content={content} isInList={false} />
-        </div>
+        </DetailsPage>
     );
 };
 
