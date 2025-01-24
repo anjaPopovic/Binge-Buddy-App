@@ -2,7 +2,13 @@ import React, { useState, useEffect } from "react";
 import ResultsCard from "../../components/ResultsCard";
 import Header from "../../components/Header";
 import searchMovies from "../../services/SearchMovies";
-import "../../styles/ResultsCard.css";
+import {
+  AddPage,
+  InputWrapper,
+  SearchButton,
+  ResultsContainer
+}
+from "../../styles/ResultsCard";
 
 const Movies = () => {
   const [movieQuery, setMovieQuery] = useState(() => {
@@ -22,10 +28,12 @@ const Movies = () => {
   }, [location.pathname]);
 
   const handleInputChange = (e) => {
-    const newQuery = e.target.value;
-    setMovieQuery(newQuery);
-    sessionStorage.setItem("movieSearchQuery", newQuery);
-    fetchMovies(newQuery);
+    setMovieQuery(e.target.value);
+    sessionStorage.setItem("movieSearchQuery", e.target.value);
+  };
+
+  const handleSearchClick = async () => {
+    fetchMovies(movieQuery);
   };
 
   const fetchMovies = async (query) => {
@@ -41,28 +49,28 @@ const Movies = () => {
 
   return (
     <>
-      <Header
-        isAuthenticated={true}
-        role="user"
-      />
-      <div className="add-page">
-        <div className="input-wrapper">
+      <Header isAuthenticated={true} role="user" />
+      <AddPage>
+        <InputWrapper>
           <input
             type="text"
             placeholder="Search for a movie"
             value={movieQuery}
             onChange={handleInputChange}
           />
-        </div>
+          <SearchButton onClick={handleSearchClick}>
+            Search
+          </SearchButton>
+        </InputWrapper>
 
         {movieResults.length > 0 && (
-          <div className="results-container">
+          <ResultsContainer>
             {movieResults.map((movie) => (
               <ResultsCard key={movie.id} contentType={movie} isInList={false} />
             ))}
-          </div>
+          </ResultsContainer>
         )}
-      </div>
+      </AddPage>
     </>
   );
 };
