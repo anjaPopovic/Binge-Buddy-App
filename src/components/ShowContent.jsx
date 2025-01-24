@@ -1,6 +1,10 @@
 import React from "react";
 import { useFetch } from "../hooks/useFetch";
-import ResultsCard from "../components/ResultsCard";
+import ResultsCard from "./ResultsCard";
+import {
+    HomePage,
+    ResultsContainer
+} from "../styles/ResultsCard";
 
 const ShowContent = () => {
     const { data: newContent, loading, error } = useFetch("http://localhost:5178/content");
@@ -9,9 +13,9 @@ const ShowContent = () => {
     if (error) return <div>Error: {error}</div>;
 
     return (
-        <div>
+        <HomePage>
             <h2>Users have also requested...</h2>
-            <div>
+            <ResultsContainer>
                 {newContent && newContent.length > 0 ? (
                     newContent.map((item) => (
                         <ResultsCard key={item.id} contentType={item} />
@@ -19,8 +23,8 @@ const ShowContent = () => {
                 ) : (
                     <p>No content available</p>
                 )}
-            </div>
-        </div>
+            </ResultsContainer>
+        </HomePage>
     );
 };
 
