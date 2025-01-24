@@ -1,5 +1,12 @@
-import React, { useContext } from "react";
-import "../styles/ResultsCard.css";
+import React from "react";
+import {
+    ResultsContainer,
+    ResultsCardContainer,
+    Poster,
+    Info,
+    Title
+}
+    from "../styles/ResultsCard";
 import { useNavigate } from "react-router-dom";
 import Controls from "./Controls";
 
@@ -8,39 +15,42 @@ const ResultsCard = ({ contentType, isInList }) => {
     const navigate = useNavigate();
 
     const handleCardClick = () => {
-        if (contentType?.id) {
+        if (contentType?.overview) {
             navigate(`/details/${isMovie ? "movie" : "tv"}/${contentType.id}`);
+        } else if (contentType?.description) {
+            navigate(`/details/${contentType.id}`);
         } else {
             alert("Invalid content type");
         }
     };
 
     return (
-        <div className="results-container">
-            <div className="results-card">
-                <div className="poster" onClick={handleCardClick}>
-                    {contentType.poster_path ? (
+        <ResultsContainer>
+            <ResultsCardContainer>
+                <Poster onClick={handleCardClick}>
+                    {contentType?.poster_path ? (
                         <img
                             src={`https://image.tmdb.org/t/p/w200${contentType.poster_path}`}
                             alt={`${isMovie ? contentType.title : contentType.name} Poster`}
                         />
                     ) : (
-                        <div className="filler" />
+                        <div>No Image</div>
                     )}
-                </div>
+                </Poster>
 
-                <div className="info">
-                    <h3 className="title">
+
+                <Info>
+                    <Title>
                         {isMovie ? contentType.title : contentType.name}
-                    </h3>
-                </div>
+                    </Title>
+                </Info>
 
                 <Controls
                     content={contentType}
                     isInList={isInList}
                 />
-            </div>
-        </div>
+            </ResultsCardContainer>
+        </ResultsContainer>
     );
 };
 
