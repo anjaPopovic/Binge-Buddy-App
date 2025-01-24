@@ -2,8 +2,14 @@ import React, { useState, useEffect } from "react";
 import ResultsCard from "../../components/ResultsCard";
 import Header from "../../components/Header";
 import searchTVShows from "../../services/SearchTVShows";
-import { useLocation } from "react-router-dom"; // Koristi useNavigate umesto useHistory
-import "../../styles/ResultsCard.css";
+import { useLocation } from "react-router-dom";
+import {
+  AddPage,
+  InputWrapper,
+  SearchButton,
+  ResultsContainer
+}
+  from "../../styles/ResultsCard";
 
 export const TVShows = () => {
   const [query, setQuery] = useState(() => {
@@ -25,10 +31,12 @@ export const TVShows = () => {
   }, [location.pathname]);
 
   const handleInputChange = (e) => {
-    const newQuery = e.target.value;
-    setQuery(newQuery);
-    sessionStorage.setItem("tvShowSearchQuery", newQuery);
-    fetchTVShows(newQuery);
+    setQuery(e.target.value);
+    sessionStorage.setItem("tvShowSearchQuery", e.target.value);
+  };
+
+  const handleSearchClick = async () => {
+    fetchTVShows(query);
   };
 
   const fetchTVShows = async (query) => {
@@ -44,28 +52,28 @@ export const TVShows = () => {
 
   return (
     <>
-      <Header
-        isAuthenticated={true}
-        role="user" 
-      />
-      <div className="add-page">
-        <div className="input-wrapper">
+      <Header isAuthenticated={true} role="user" />
+      <AddPage>
+        <InputWrapper>
           <input
             type="text"
             placeholder="Search for a TV Show"
             value={query}
             onChange={handleInputChange}
           />
-        </div>
+          <SearchButton onClick={handleSearchClick}>
+            Search
+          </SearchButton>
+        </InputWrapper>
 
         {results.length > 0 && (
-          <div className="results-container">
+          <ResultsContainer>
             {results.map((tv) => (
               <ResultsCard key={tv.id} contentType={tv} isInList={false} />
             ))}
-          </div>
+          </ResultsContainer>
         )}
-      </div>
+      </AddPage>
     </>
   );
 };
