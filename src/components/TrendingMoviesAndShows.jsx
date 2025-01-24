@@ -1,6 +1,10 @@
 import React from "react";
-import ResultsCard from "../components/ResultsCard";
-import "../styles/ResultsCard.css";
+import ResultsCard from "./ResultsCard";
+import {
+  HomePage,
+  ResultsContainer
+} 
+from "../styles/ResultsCard";
 import { useFetch } from "../hooks/useFetch";
 
 const TrendingContent = ({ type, title }) => {
@@ -10,14 +14,14 @@ const TrendingContent = ({ type, title }) => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="home-page">
+    <HomePage>
       <h2>{title}</h2>
-      <div className="results-container">
+      <ResultsContainer>
         {trendingContent.slice(0, 5).map((content) => (
           <ResultsCard key={content.id} contentType={content} />
         ))}
-      </div>
-    </div>
+      </ResultsContainer>
+    </HomePage>
   );
 };
 
