@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-/*for showing requests*/
+/*for showing requests and content*/
 export const RequestsContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -18,7 +18,6 @@ export const RequestsTable = styled.table`
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-
 
 th, td,
  {
@@ -39,6 +38,27 @@ td {
     color: #444;
     text-align: center;
 }`;
+
+export const TableRow = styled.tr`
+    &:nth-child(even) {
+        background-color: #e05f51;
+    }
+
+    &:nth-child(odd) {
+        background-color: white; 
+    }
+
+    &:hover {
+        background-color: #f5a09d; 
+    }
+`;
+
+export const TableCells = styled.td`
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+`;
+
 
 export const RequestsButtonsContainer = styled.div`
     display: flex;
@@ -89,7 +109,8 @@ export const RejectButton = styled.button`
     }
 `;
 
-/*for adding requests*/
+
+/*for adding requests and content*/
 export const Container = styled.div`
     margin-left: 50px;
     display: flex;
@@ -164,7 +185,6 @@ export const Container = styled.div`
     }
 
 `;
-
 
 export const UserRequests = styled.div`
     margin-top: 30px;
