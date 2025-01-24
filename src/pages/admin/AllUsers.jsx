@@ -1,14 +1,26 @@
 import React from "react";
-import "../../styles/AllUsers.css";
+import {
+    RequestsContainer,
+    RequestsTable,
+    TableRow,
+    TableCells
+}
+    from "../../styles/Requests";
 import Header from "../../components/Header";
 import { useFetch } from "../../hooks/useFetch";
+import { useNavigate } from "react-router-dom";
 
 const AllUsers = () => {
+    const navigate = useNavigate();
     const { data: users, loading, error } = useFetch("http://localhost:5175/users");
+
+    const handleClick = (id) => {
+        navigate(`/userDetails/${id}`, { state: { id } });
+    };
 
     const filteredUsers = users
         ?.filter((user) => user.role === "user")
-        .map(({ id, password, ...rest }) => rest);
+        .map(({ password, ...rest }) => rest);
 
     if (loading) {
         return <div>Loading...</div>;
@@ -18,6 +30,8 @@ const AllUsers = () => {
         return <div>Error loading users: {error.message || error}</div>;
     }
 
+
+
     return (
         <>
             <Header
@@ -25,8 +39,8 @@ const AllUsers = () => {
                 role="admin"
             />
             <h2 style={{ textAlign: "center", marginTop: "50px" }}>All Users</h2>
-            <div className="users-table-container">
-                <table className="users-table">
+            <RequestsContainer>
+                <RequestsTable>
                     <thead>
                         <tr>
                             <th>Username</th>
@@ -36,15 +50,19 @@ const AllUsers = () => {
                     </thead>
                     <tbody>
                         {filteredUsers.map((user, index) => (
-                            <tr key={index}>
-                                <td>{user.username}</td>
-                                <td>{user.email}</td>
-                                <td>{user.role}</td>
-                            </tr>
+                            <TableRow
+                                key={index}
+                                onClick={() => handleClick(user.id)}
+                                style={{ cursor: "pointer" }}
+                            >
+                                <TableCells>{user.username}</TableCells>
+                                <TableCells>{user.email}</TableCells>
+                                <TableCells>{user.role}</TableCells>
+                            </TableRow>
                         ))}
                     </tbody>
-                </table>
-            </div>
+                </RequestsTable>
+            </RequestsContainer>
         </>
     );
 };
