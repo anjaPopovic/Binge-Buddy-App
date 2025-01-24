@@ -3,8 +3,20 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
-import "../../../styles/Registration.css";
 import { useNavigate } from "react-router-dom";
+import {
+    Body,
+    FormContainer,
+    Title,
+    Subtitle,
+    Form,
+    FormGroup,
+    Label,
+    Input,
+    ErrorMessage,
+    SubmitButton,
+    LinkText,
+} from "../../../styles/Registration";
 
 const Login = () => {
     const [errorMessage, setErrorMessage] = useState("");
@@ -37,18 +49,12 @@ const Login = () => {
                 localStorage.setItem("email", user.email);
                 localStorage.setItem("username", user.username);
                 localStorage.setItem("role", user.role);
+                localStorage.setItem("id", user.id);
 
-                if (user.role === "user") {
-                    return (window.location.href = "./home");
-                } else {
-                    window.location.href = "./adminDashboard";
-                }
-                
-                {/*navigate(user.role === "admin" ? "/adminDashboard" : "/home");*/}
-                    
-
+                navigate(user.role === "admin" ? "/adminDashboard" : "/home");
+                window.location.reload();
             } else {
-                setErrorMessage("Invalid credentials");
+                setErrorMessage("Invalid email or password!");
             }
         } catch (error) {
             console.error("Error: ", error);
@@ -57,43 +63,42 @@ const Login = () => {
     };
 
     return (
-        <>
-            <h1>Welcome to Binge Buddy Application</h1>
-            <div className="form-container">
-                <h2>Log In</h2>
-                <form onSubmit={handleSubmit(onSubmit)} className="login-form">
-                    <div className="form-group">
-                        <label htmlFor="email">Email:</label>
-                        <input 
-                            id="email" 
-                            type="text" 
-                            placeholder="Enter your email" 
+        <Body>
+            <Title>Welcome to Binge Buddy Application</Title>
+            <FormContainer>
+                <Subtitle>Log In</Subtitle>
+                <Form onSubmit={handleSubmit(onSubmit)}>
+                    <FormGroup>
+                        <Label htmlFor="email">Email:</Label>
+                        <Input
+                            id="email"
+                            type="text"
+                            placeholder="Enter your email"
                             {...register("email")}
                         />
-                        <p className="error-message">{errors.email?.message}</p>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password:</label>
-                        <input 
-                            id="password" 
-                            type="password" 
-                            placeholder="Enter your password" 
-                            {...register("password")} 
+                        {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+                    </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor="password">Password:</Label>
+                        <Input
+                            id="password"
+                            type="password"
+                            placeholder="Enter your password"
+                            {...register("password")}
                         />
-                        <p className="error-message">{errors.password?.message}</p>
-                    </div>
-                    <button type="submit" id="submit-button">
-                        Log In
-                    </button>
-
-                    <p>
-                        Don't have an account yet? Sign up <a href="/registration">here</a>
-                    </p>
-                </form>
-                {errorMessage && <p className="error-message">{errorMessage}</p>}
-            </div>
-
-        </>
+                        {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
+                    </FormGroup>
+                    <SubmitButton type="submit">Log In</SubmitButton>
+                    <LinkText>
+                        Don't have an account yet? Sign up{" "}
+                        <a href="#" onClick={() => navigate("/registration")}>
+                            here
+                        </a>
+                    </LinkText>
+                </Form>
+                {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+            </FormContainer>
+        </Body>
     );
 };
 
