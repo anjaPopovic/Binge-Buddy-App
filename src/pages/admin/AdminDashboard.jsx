@@ -1,6 +1,11 @@
 import React from "react";
 import Header from "../../components/Header";
-import "../../styles/Requests.css";
+import {
+    RequestsContainer,
+    RequestsTable,
+    ApproveButton,
+    RejectButton
+} from "../../styles/Requests";
 import { useNavigate } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
 
@@ -23,7 +28,7 @@ const AdminDashboard = () => {
 
                 if (response.ok) {
                     alert("Content has been deleted!");
-                    window.location.reload(); 
+                    window.location.reload();
                 } else {
                     alert("Failed to delete content.");
                 }
@@ -43,8 +48,8 @@ const AdminDashboard = () => {
             <h2 style={{ textAlign: "center", marginTop: "100px", fontSize: "1.8em" }}>
                 Added TV Shows/Movies from users' requests
             </h2>
-            <div className="content-control">
-                <table className="content">
+            <RequestsContainer>
+                <RequestsTable>
                     <thead>
                         <tr>
                             <th>Title</th>
@@ -68,24 +73,22 @@ const AdminDashboard = () => {
                                 <td>{r.seasons}</td>
                                 <td>{r.episodes}</td>
                                 <td>
-                                    <button
+                                    <RejectButton
                                         onClick={() => deleteContent(r.id)}
-                                        className="requests-button-reject"
                                     >
                                         Delete
-                                    </button>
-                                    <button
+                                    </RejectButton>
+                                    <ApproveButton
                                         onClick={() => handleUpdate(r.id)}
-                                        className="requests-button-approve"
                                     >
                                         Update
-                                    </button>
+                                    </ApproveButton>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
-                </table>
-            </div>
+                </RequestsTable>
+            </RequestsContainer>
         </>
     );
 };
