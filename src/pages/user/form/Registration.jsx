@@ -2,14 +2,24 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import "../../../styles/Registration.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useFetch } from "../../../hooks/useFetch";
+import {
+    Body,
+    FormContainer,
+    Subtitle,
+    Form,
+    FormGroup,
+    Label,
+    Input,
+    ErrorMessage,
+    SubmitButton,
+    LinkText,
+} from "../../../styles/Registration";
 
 const Registration = () => {
     const navigate = useNavigate();
-
     const { data: users } = useFetch("http://localhost:5175/users");
 
     const schema = yup.object({
@@ -26,7 +36,11 @@ const Registration = () => {
             .required("Please confirm your password!"),
     });
 
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
         resolver: yupResolver(schema),
     });
 
@@ -51,60 +65,46 @@ const Registration = () => {
     };
 
     return (
-        <div className="form-container">
-            <h2>Create Your Account</h2>
-            <form onSubmit={handleSubmit(onSubmit)} className="signup-form">
-                <div className="form-group">
-                    <label htmlFor="username">Username:</label>
-                    <input
-                        id="username"
-                        type="text"
-                        placeholder="Enter your username"
-                        {...register("username")}
-                    />
-                    {errors.username && <p className="error-message">{errors.username.message}</p>}
-                </div>
-                <div className="form-group">
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        id="email"
-                        type="email"
-                        placeholder="Enter your email"
-                        {...register("email")}
-                    />
-                    {errors.email && <p className="error-message">{errors.email.message}</p>}
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password:</label>
-                    <input
-                        id="password"
-                        type="password"
-                        placeholder="Enter your password"
-                        {...register("password")}
-                    />
-                    {errors.password && <p className="error-message">{errors.password.message}</p>}
-                </div>
-                <div className="form-group">
-                    <label htmlFor="confirmPassword">Confirm Password:</label>
-                    <input
-                        id="confirmPassword"
-                        type="password"
-                        placeholder="Confirm your password"
-                        {...register("confirmPassword")}
-                    />
-                    {errors.confirmPassword && (
-                        <p className="error-message">{errors.confirmPassword.message}</p>
-                    )}
-                </div>
-                <button type="submit" id="submit-button">
-                    Sign Up
-                </button>
-
-                <p style={{ textAlign: "center", marginTop: "10px" }}>
-                    Already have an account? Login <a href="#" onClick={() => navigate("/")}>here</a>.
-                </p>
-            </form>
-        </div>
+        <Body>
+            <FormContainer>
+                <Subtitle>Create Your Account</Subtitle>
+                <Form onSubmit={handleSubmit(onSubmit)}>
+                    <FormGroup>
+                        <Label htmlFor="username">Username:</Label>
+                        <Input id="username" type="text" placeholder="Enter your username" {...register("username")} />
+                        {errors.username && <ErrorMessage>{errors.username.message}</ErrorMessage>}
+                    </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor="email">Email:</Label>
+                        <Input id="email" type="email" placeholder="Enter your email" {...register("email")} />
+                        {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+                    </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor="password">Password:</Label>
+                        <Input id="password" type="password" placeholder="Enter your password" {...register("password")} />
+                        {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
+                    </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor="confirmPassword">Confirm Password:</Label>
+                        <Input
+                            id="confirmPassword"
+                            type="password"
+                            placeholder="Confirm your password"
+                            {...register("confirmPassword")}
+                        />
+                        {errors.confirmPassword && <ErrorMessage>{errors.confirmPassword.message}</ErrorMessage>}
+                    </FormGroup>
+                    <SubmitButton type="submit">Sign Up</SubmitButton>
+                    <LinkText>
+                        Already have an account? Login{" "}
+                        <a href="#" onClick={() => navigate("/")}>
+                            here
+                        </a>
+                        .
+                    </LinkText>
+                </Form>
+            </FormContainer>
+        </Body>
     );
 };
 
