@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Header from "../../components/Header";
 import { GlobalContext } from "../../context/GlobalContext";
-import "../../styles/ResultsCard.css";
+import "../../styles/ResultsCard.js";
 import ResultsCard from "../../components/ResultsCard";
 
 const WatchList = () => {
@@ -9,9 +9,9 @@ const WatchList = () => {
 
     return (
         <>
-            <Header 
-                isAuthenticated={true} 
-                role="user" 
+            <Header
+                isAuthenticated={true}
+                role="user"
             />
             <h1 className="watchlist-title">My Watchlist</h1>
 
