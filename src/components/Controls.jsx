@@ -1,5 +1,8 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalContext";
+import {
+    ControlsContainer
+} from "../styles/ResultsCard";
 
 const Controls = ({ content, isInList }) => {
     const {
@@ -17,7 +20,7 @@ const Controls = ({ content, isInList }) => {
 
     if (!isInList) {
         return (
-            <div className="controls">
+            <ControlsContainer>
                 {alreadyInWatchlist || alreadyInWatched ? (
                     <>
                         {alreadyInWatchlist && <button disabled>Already in Watchlist</button>}
@@ -33,12 +36,12 @@ const Controls = ({ content, isInList }) => {
                         </button>
                     </>
                 )}
-            </div>
+            </ControlsContainer>
         );
     }
 
     return (
-        <div className="controls">
+        <ControlsContainer>
             {alreadyInWatchlist && !alreadyInWatched && (
                 <>
                     <button onClick={() => removeFromWatchlist(content.id)}>
@@ -60,7 +63,7 @@ const Controls = ({ content, isInList }) => {
                     </button>
                 </>
             )}
-        </div>
+        </ControlsContainer>
     );
 };
 
