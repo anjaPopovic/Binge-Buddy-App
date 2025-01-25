@@ -1,7 +1,12 @@
 import React, { useContext } from "react";
 import Header from "../../components/Header";
 import { GlobalContext } from "../../context/GlobalContext";
-import "../../styles/ResultsCard.js";
+import {
+    WatchlistContainer,
+    WatchlistTitle,
+    NumOfContent
+}
+    from "../../styles/ResultsCard";
 import ResultsCard from "../../components/ResultsCard";
 
 const WatchList = () => {
@@ -13,14 +18,14 @@ const WatchList = () => {
                 isAuthenticated={true}
                 role="user"
             />
-            <h1 className="watchlist-title">My Watchlist</h1>
+            <WatchlistTitle>My Watchlist</WatchlistTitle>
 
-            <span className="num-of-content">
+            <NumOfContent>
                 {watchlist.length} {watchlist.length === 1 ? "TV Show/Movie" : "TV Shows/Movies"}
-            </span>
+            </NumOfContent>
 
             {watchlist.length > 0 ? (
-                <div className="watchlist-container">
+                <WatchlistContainer>
                     {watchlist.map((content) => (
                         <ResultsCard
                             key={content.id}
@@ -28,7 +33,7 @@ const WatchList = () => {
                             isInList={true}
                         />
                     ))}
-                </div>
+                </WatchlistContainer>
             ) : (
                 <p>Your watchlist is empty.</p>
             )}
