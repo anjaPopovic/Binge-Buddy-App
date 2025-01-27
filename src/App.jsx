@@ -57,9 +57,8 @@ const App = () => {
                     <Route path="/requests" element={<Requests />} />
                     <Route path="/updateContent" element={<UpdateContent />}/>
                     <Route path="/userDetails/:id" element={<UserDetails />} />
-                    <Route path="/home" element={<Navigate to="/adminDashboard" />} />
-                    <Route path="/movies" element={<Navigate to="/adminDashboard" />} />
                     <Route path="/" element={<Navigate to="/adminDashboard" />} />
+                    <Route path="*" element={<Navigate to="/adminDashboard" />} />
                   </>
                 ) : (
                   <>
@@ -72,6 +71,7 @@ const App = () => {
                     <Route path="/details/:type/:id" element={<TMDBDetails />} />
                     <Route path="/details/:id" element={<LocalDetails />} />
                     <Route path="/" element={<Navigate to="/home" />} />
+                    <Route path="*" element={<Navigate to="/home" />} />
                   </>
                 )}
               </Route>
