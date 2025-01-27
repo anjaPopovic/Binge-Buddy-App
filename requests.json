@@ -1,12 +1,40 @@
 {
   "requests": [
     {
-      "id": "00a9",
-      "title": "Mouse",
-      "country": "South Korea",
+      "id": "1",
+      "title": "Liar",
+      "country": "USA",
       "contentType": "TV Show",
-      "releaseYear": "2021",
-      "status": "approved"
+      "releaseYear": "2020",
+      "status": "rejected",
+      "user": "user_2"
+    },
+    {
+      "id": "2",
+      "title": "Feeling",
+      "country": "Netherlands",
+      "contentType": "Movie",
+      "releaseYear": "2023",
+      "status": "approved",
+      "user": "user_2"
+    },
+    {
+      "id": "3",
+      "title": "Spider",
+      "country": "South Korea",
+      "contentType": "Movie",
+      "releaseYear": "2012",
+      "status": "approved",
+      "user": "user_1"
+    },
+    {
+      "id": "4",
+      "title": "Right or Wrong",
+      "country": "USA",
+      "contentType": "Movie",
+      "releaseYear": "2020",
+      "status": "rejected",
+      "user": "user_3"
     }
   ]
 }
