@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import axios from "axios";
-import {
-    Container
-} from "../../styles/Requests";
-import { useLocation } from "react-router-dom"; //ispravi da koristi usefetch
+import { Container } from "../../styles/Requests";
+import { useLocation } from "react-router-dom";
+import { useFetch } from "../../hooks/useFetch";
 
 const AddContent = () => {
     const location = useLocation();
@@ -20,17 +19,7 @@ const AddContent = () => {
     });
 
     const [contentType, setContentType] = useState('Movie');
-    const [existingContent, setExistingContent] = useState([]);
-
-    const fetchContent = async () => {
-        try {
-            const response = await fetch("http://localhost:5178/content");
-            const cont = await response.json();
-            setExistingContent(cont);
-        } catch (error) {
-            console.error("Error fetching content:", error);
-        }
-    };
+    const { data: existingContent = [], loading, error } = useFetch("http://localhost:5178/content");
 
     useEffect(() => {
         if (location.state) {
@@ -45,7 +34,6 @@ const AddContent = () => {
             });
             setContentType(contentType);
         }
-        fetchContent();
     }, [location.state]);
 
     const handleInputChange = (e) => {
@@ -101,13 +89,20 @@ const AddContent = () => {
                 episodes: 0
             });
             setContentType('Movie');
-            setExistingContent([...existingContent, newContent]);
 
         } catch (error) {
             console.error("Error adding content:", error);
             alert("Failed to add content.");
         }
     };
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error loading content: {error.message || error}</div>;
+    }
 
     return (
         <>
