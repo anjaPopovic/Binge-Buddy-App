@@ -30,8 +30,6 @@ const AllUsers = () => {
         return <div>Error loading users: {error.message || error}</div>;
     }
 
-
-
     return (
         <>
             <Header
