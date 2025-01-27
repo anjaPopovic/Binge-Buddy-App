@@ -1,0 +1,31 @@
+{
+  "content": [
+    {
+      "id": "1",
+      "title": "All of us",
+      "genre": "Romance",
+      "description": "description",
+      "country": "USA",
+      "contentType": "Movie",
+      "releaseDate": "2021"
+    },
+    {
+      "id": "2",
+      "title": "Spider",
+      "genre": "Action, Thriller",
+      "description": "description",
+      "country": "South Korea",
+      "contentType": "Movie",
+      "releaseDate": "2012"
+    },
+    {
+      "id": "3",
+      "title": "Feeling",
+      "genre": "Thriller",
+      "description": "description",
+      "country": "Netherlands",
+      "contentType": "Movie",
+      "releaseDate": "2023"
+    }
+  ]
+}
