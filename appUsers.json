@@ -1,32 +1,619 @@
 {
   "users": [
     {
-      "id": "58bf",
-      "username": "user1",
-      "email": "user1@gmail.com",
-      "password": "password",
-      "role": "user"
-    },
-    {
-      "id": "ab14",
-      "username": "user2",
-      "email": "user2@gmail.com",
-      "password": "password1",
-      "role": "user"
-    },
-    {
-      "id": "e105",
+      "id": "0",
       "username": "admin",
       "email": "admin@gmail.com",
       "password": "password",
       "role": "admin"
     },
     {
-      "id": "973a",
-      "username": "user3",
+      "id": "1",
+      "username": "user_1",
+      "email": "user1@gmail.com",
+      "password": "password1",
+      "role": "user",
+      "watchlist": [
+        {
+          "backdrop_path": "/n5FPNMJ0eRoiQrKGfUQQRAZeaxg.jpg",
+          "id": 125988,
+          "name": "Silo",
+          "original_name": "Silo",
+          "overview": "In a ruined and toxic future, thousands live in a giant silo deep underground. After its sheriff breaks a cardinal rule and residents die mysteriously, engineer Juliette starts to uncover shocking secrets and the truth about the silo.",
+          "poster_path": "/tlliQuCupf8fpTH7RAor3aKMGy.jpg",
+          "media_type": "tv",
+          "adult": false,
+          "original_language": "en",
+          "genre_ids": [
+            10765,
+            18
+          ],
+          "popularity": 1111.786,
+          "first_air_date": "2023-05-04",
+          "vote_average": 8.159,
+          "vote_count": 1217,
+          "origin_country": [
+            "US"
+          ]
+        },
+        {
+          "backdrop_path": "/pqulyfkug9A7TmmRn5zrbRA8TAY.jpg",
+          "id": 1255788,
+          "title": "The Gardener",
+          "original_title": "Le Jardinier",
+          "overview": "Every year the Prime Minister has a list of all kinds of troublemakers eliminated in the name of the famous Reason of State. Serge Shuster, Special Adviser to the President of the Republic, finds himself on this list, better known as the Matignon List.  Condemned to certain death and at the heart of an implacable plot and a state secret that also put his family in danger, Serge, his wife and children have only one hope left - their gardener, Léo, who hates it when « slugs » invade his garden... Especially those that want to kill innocent families.",
+          "poster_path": "/zvLQXaiHn5g376AuHe8hd0u8tN2.jpg",
+          "media_type": "movie",
+          "adult": false,
+          "original_language": "fr",
+          "genre_ids": [
+            28,
+            35
+          ],
+          "popularity": 44.516,
+          "release_date": "2025-01-10",
+          "video": false,
+          "vote_average": 5.071,
+          "vote_count": 7
+        }
+      ],
+      "watched": [
+        {
+          "backdrop_path": "/u2eA9pqi1q3DvevT7RuDuJHxxBT.jpg",
+          "id": 974950,
+          "title": "Emilia Pérez",
+          "original_title": "Emilia Pérez",
+          "overview": "Rita, an underrated lawyer working for a large law firm more interested in getting criminals out of jail than bringing them to justice, is hired by the leader of a criminal organization.",
+          "poster_path": "/7seqaCaaXDNUHOx4DqwpoOH8pPa.jpg",
+          "media_type": "movie",
+          "adult": false,
+          "original_language": "fr",
+          "genre_ids": [
+            18,
+            53
+          ],
+          "popularity": 152.301,
+          "release_date": "2024-08-21",
+          "video": false,
+          "vote_average": 7.9,
+          "vote_count": 544
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "username": "user_2",
+      "email": "user2@gmail.com",
+      "password": "password2",
+      "role": "user",
+      "watchlist": [
+        {
+          "backdrop_path": "/XNVdWNgiAHu8y4BsJv5ndUHXxN.jpg",
+          "id": 929204,
+          "title": "Wallace & Gromit: Vengeance Most Fowl",
+          "original_title": "Wallace & Gromit: Vengeance Most Fowl",
+          "overview": "Gromit’s concern that Wallace is becoming too dependent on his inventions proves justified, when Wallace invents a “smart” gnome that seems to develop a mind of its own. When it emerges that a vengeful figure from the past might be masterminding things, it falls to Gromit to battle sinister forces and save his master… or Wallace may never be able to invent again!",
+          "poster_path": "/6BxK38ehxuX2dJmZIMpJcVNbYks.jpg",
+          "media_type": "movie",
+          "adult": false,
+          "original_language": "en",
+          "genre_ids": [
+            16,
+            35,
+            10751
+          ],
+          "popularity": 382.885,
+          "release_date": "2024-12-18",
+          "video": false,
+          "vote_average": 7.705,
+          "vote_count": 149
+        },
+        {
+          "adult": false,
+          "backdrop_path": "/uWOJbarUXfVf6B4o0368dh138eR.jpg",
+          "belongs_to_collection": null,
+          "budget": 50000000,
+          "genres": [
+            {
+              "id": 18,
+              "name": "Drama"
+            },
+            {
+              "id": 14,
+              "name": "Fantasy"
+            },
+            {
+              "id": 27,
+              "name": "Horror"
+            }
+          ],
+          "homepage": "https://www.focusfeatures.com/nosferatu",
+          "id": 426063,
+          "imdb_id": "tt5040012",
+          "origin_country": [
+            "US"
+          ],
+          "original_language": "en",
+          "original_title": "Nosferatu",
+          "overview": "A gothic tale of obsession between a haunted young woman and the terrifying vampire infatuated with her, causing untold horror in its wake.",
+          "popularity": 952.121,
+          "poster_path": "/5qGIxdEO841C0tdY8vOdLoRVrr0.jpg",
+          "production_companies": [
+            {
+              "id": 10146,
+              "logo_path": "/xnFIOeq5cKw09kCWqV7foWDe4AA.png",
+              "name": "Focus Features",
+              "origin_country": "US"
+            },
+            {
+              "id": 77863,
+              "logo_path": "/7z6YOzvdk70YY8OaRbn5mfxrvbO.png",
+              "name": "Studio 8",
+              "origin_country": "US"
+            },
+            {
+              "id": 41641,
+              "logo_path": null,
+              "name": "Maiden Voyage Pictures",
+              "origin_country": "US"
+            },
+            {
+              "id": 239430,
+              "logo_path": null,
+              "name": "Birch Hill Road Entertainment",
+              "origin_country": "US"
+            }
+          ],
+          "production_countries": [
+            {
+              "iso_3166_1": "US",
+              "name": "United States of America"
+            }
+          ],
+          "release_date": "2024-12-25",
+          "revenue": 101613765,
+          "runtime": 133,
+          "spoken_languages": [
+            {
+              "english_name": "English",
+              "iso_639_1": "en",
+              "name": "English"
+            },
+            {
+              "english_name": "German",
+              "iso_639_1": "de",
+              "name": "Deutsch"
+            },
+            {
+              "english_name": "Romanian",
+              "iso_639_1": "ro",
+              "name": "Română"
+            },
+            {
+              "english_name": "Russian",
+              "iso_639_1": "ru",
+              "name": "Pусский"
+            },
+            {
+              "english_name": "Spanish",
+              "iso_639_1": "es",
+              "name": "Español"
+            }
+          ],
+          "status": "Released",
+          "tagline": "Succumb to the darkness.",
+          "title": "Nosferatu",
+          "video": false,
+          "vote_average": 6.9,
+          "vote_count": 615
+        },
+        {
+          "adult": false,
+          "backdrop_path": "/oJ1MIABA0WF0a7MDVQnnMvBdex8.jpg",
+          "genre_ids": [
+            27,
+            35
+          ],
+          "id": 567609,
+          "original_language": "en",
+          "original_title": "Ready or Not",
+          "overview": "A young bride's wedding night turns into her worst nightmare when her ridiculously rich in-laws force her to play a gruesome game of hide-in-seek.",
+          "popularity": 47.462,
+          "poster_path": "/oJD9KQFoObZmxAS1je56SIFVNJt.jpg",
+          "release_date": "2019-08-21",
+          "title": "Ready or Not",
+          "video": false,
+          "vote_average": 7,
+          "vote_count": 4600
+        },
+        {
+          "backdrop_path": "/6E0hbesJfpekAqL2AeHYukkHcbD.jpg",
+          "id": 202879,
+          "name": "Star Wars: Skeleton Crew",
+          "original_name": "Star Wars: Skeleton Crew",
+          "overview": "Four ordinary kids search for their home planet after getting lost in the Star Wars galaxy.",
+          "poster_path": "/srQbJhLRKoAwRrNN5ga7webPHbC.jpg",
+          "media_type": "tv",
+          "adult": false,
+          "original_language": "en",
+          "genre_ids": [
+            10759,
+            10765
+          ],
+          "popularity": 732.696,
+          "first_air_date": "2024-12-02",
+          "vote_average": 7.201,
+          "vote_count": 159,
+          "origin_country": [
+            "US"
+          ]
+        }
+      ],
+      "watched": [
+        {
+          "backdrop_path": "/b3mdmjYTEL70j7nuXATUAD9qgu4.jpg",
+          "id": 823219,
+          "title": "Flow",
+          "original_title": "Straume",
+          "overview": "A solitary cat, displaced by a great flood, finds refuge on a boat with various species and must navigate the challenges of adapting to a transformed world together.",
+          "poster_path": "/imKSymKBK7o73sajciEmndJoVkR.jpg",
+          "media_type": "movie",
+          "adult": false,
+          "original_language": "lv",
+          "genre_ids": [
+            16,
+            14,
+            12
+          ],
+          "popularity": 1109.247,
+          "release_date": "2024-01-30",
+          "video": false,
+          "vote_average": 8.4,
+          "vote_count": 570
+        },
+        {
+          "adult": false,
+          "backdrop_path": "/2ns30HHRX5qgsVfEvvevwUcrD5E.jpg",
+          "genre_ids": [
+            16,
+            10765,
+            9648
+          ],
+          "id": 123542,
+          "origin_country": [
+            "CN"
+          ],
+          "original_language": "zh",
+          "original_name": "时光代理人",
+          "overview": "Using superpowers to enter their clientele’s photos one by one, Cheng Xiaoshi and Lu Guang take their work seriously at “Time Photo Studio,” a small photography shop set in the backdrop of a modern metropolis. Each job can be full of danger, but nothing is more important than fulfilling every order, no matter the scale…or peril involved!",
+          "popularity": 92.037,
+          "poster_path": "/au5LmnOXHIe2iUTPydG1QIZMD5P.jpg",
+          "first_air_date": "2021-04-30",
+          "name": "LINK CLICK",
+          "vote_average": 8.2,
+          "vote_count": 72
+        },
+        {
+          "adult": false,
+          "backdrop_path": "/dhnHhEugKPohoyigCaFywPfOJBp.jpg",
+          "genre_ids": [
+            18,
+            80,
+            10759
+          ],
+          "id": 75219,
+          "origin_country": [
+            "US"
+          ],
+          "original_language": "en",
+          "original_name": "9-1-1",
+          "overview": "Explore the high-pressure experiences of police officers, paramedics and firefighters who are thrust into the most frightening, shocking and heart-stopping situations. These emergency responders must try to balance saving those who are at their most vulnerable with solving the problems in their own lives.",
+          "popularity": 502.513,
+          "poster_path": "/9dNWZPjFWdKo5Avr5JEEzLShLMZ.jpg",
+          "first_air_date": "2018-01-03",
+          "name": "9-1-1",
+          "vote_average": 8.235,
+          "vote_count": 2541
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "username": "user_3",
       "email": "user3@gmail.com",
       "password": "password3",
-      "role": "user"
+      "role": "user",
+      "watchlist": [
+        {
+          "backdrop_path": "/9iwmsNVjbex9qa7FhqDUh92EjdQ.jpg",
+          "id": 225941,
+          "name": "I Am Nobody",
+          "original_name": "异人之下",
+          "overview": "When a student unearths the truth behind his grandfather’s life, he must unveil his secret superpowers to an underworld eager for his emergence.",
+          "poster_path": "/aZT7iZwR4LE2kk7sXWslgpOP7oT.jpg",
+          "media_type": "tv",
+          "adult": false,
+          "original_language": "zh",
+          "genre_ids": [
+            10759,
+            18,
+            10765
+          ],
+          "popularity": 1063.779,
+          "first_air_date": "2023-08-04",
+          "vote_average": 8.7,
+          "vote_count": 27,
+          "origin_country": [
+            "CN"
+          ]
+        }
+      ],
+      "watched": [
+        {
+          "backdrop_path": "/ukAmSyNdtWduHZfm27R2EOsguKt.jpg",
+          "id": 93405,
+          "name": "Squid Game",
+          "original_name": "오징어 게임",
+          "overview": "Hundreds of cash-strapped players accept a strange invitation to compete in children's games. Inside, a tempting prize awaits — with deadly high stakes.",
+          "poster_path": "/dDlEmu3EZ0Pgg93K2SVNLCjCSvE.jpg",
+          "media_type": "tv",
+          "adult": false,
+          "original_language": "ko",
+          "genre_ids": [
+            10759,
+            9648,
+            18
+          ],
+          "popularity": 9549.701,
+          "first_air_date": "2021-09-17",
+          "vote_average": 7.8,
+          "vote_count": 14801,
+          "origin_country": [
+            "KR"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "username": "user_4",
+      "email": "user4@gmail.com",
+      "password": "password4",
+      "role": "user",
+      "watchlist": [
+        {
+          "backdrop_path": "/2wqYNWasS3cxjAvoNfUTAZ58XGT.jpg",
+          "id": 1088514,
+          "title": "The Room Next Door",
+          "original_title": "La habitación de al lado",
+          "overview": "Ingrid and Martha were close friends in their youth, when they worked together at the same magazine. Ingrid went on to become an autofiction novelist while Martha became a war reporter, and they were separated by the circumstances of life. After years of being out of touch, they meet again in an extreme but strangely sweet situation.",
+          "poster_path": "/786Uu8eHfctp2TkII7ga1AnTBSs.jpg",
+          "media_type": "movie",
+          "adult": false,
+          "original_language": "es",
+          "genre_ids": [
+            18
+          ],
+          "popularity": 112.952,
+          "release_date": "2024-10-07",
+          "video": false,
+          "vote_average": 7.2,
+          "vote_count": 188
+        },
+        {
+          "backdrop_path": "/odVlTMqPPiMksmxpN9cCbPCjUPP.jpg",
+          "id": 127532,
+          "name": "Solo Leveling",
+          "original_name": "俺だけレベルアップな件",
+          "overview": "They say whatever doesn’t kill you makes you stronger, but that’s not the case for the world’s weakest hunter Sung Jinwoo. After being brutally slaughtered by monsters in a high-ranking dungeon, Jinwoo came back with the System, a program only he could see, that’s leveling him up in every way. Now, he’s inspired to discover the secrets behind his powers and the dungeon that spawned them.",
+          "poster_path": "/geCRueV3ElhRTr0xtJuEWJt6dJ1.jpg",
+          "media_type": "tv",
+          "adult": false,
+          "original_language": "ja",
+          "genre_ids": [
+            10759,
+            10765,
+            16
+          ],
+          "popularity": 1137.648,
+          "first_air_date": "2024-01-07",
+          "vote_average": 8.5,
+          "vote_count": 603,
+          "origin_country": [
+            "JP"
+          ]
+        },
+        {
+          "adult": false,
+          "backdrop_path": "/lirPqYLTtd6XZqGn4cS1wiesTq0.jpg",
+          "genre_ids": [
+            18,
+            9648,
+            10765
+          ],
+          "id": 1622,
+          "origin_country": [
+            "US"
+          ],
+          "original_language": "en",
+          "original_name": "Supernatural",
+          "overview": "When they were boys, Sam and Dean Winchester lost their mother to a mysterious and demonic supernatural force. Subsequently, their father raised them to be soldiers. He taught them about the paranormal evil that lives in the dark corners and on the back roads of America ... and he taught them how to kill it. Now, the Winchester brothers crisscross the country in their '67 Chevy Impala, battling every kind of supernatural threat they encounter along the way. ",
+          "popularity": 1701.514,
+          "poster_path": "/KoYWXbnYuS3b0GyQPkbuexlVK9.jpg",
+          "first_air_date": "2005-09-13",
+          "name": "Supernatural",
+          "vote_average": 8.299,
+          "vote_count": 7680
+        }
+      ],
+      "watched": [
+        {
+          "backdrop_path": "/v9Du2HC3hlknAvGlWhquRbeifwW.jpg",
+          "id": 539972,
+          "title": "Kraven the Hunter",
+          "original_title": "Kraven the Hunter",
+          "overview": "Kraven Kravinoff's complex relationship with his ruthless gangster father, Nikolai, starts him down a path of vengeance with brutal consequences, motivating him to become not only the greatest hunter in the world, but also one of its most feared.",
+          "poster_path": "/i47IUSsN126K11JUzqQIOi1Mg1M.jpg",
+          "media_type": "movie",
+          "adult": false,
+          "original_language": "en",
+          "genre_ids": [
+            28,
+            12,
+            53
+          ],
+          "popularity": 613.071,
+          "release_date": "2024-12-11",
+          "video": false,
+          "vote_average": 5.8,
+          "vote_count": 309
+        },
+        {
+          "adult": false,
+          "backdrop_path": "/sPIh2OcF7uhSLYH43W9UyQ4vEt4.jpg",
+          "genre_ids": [
+            35,
+            27,
+            9648
+          ],
+          "id": 726239,
+          "original_language": "en",
+          "original_title": "Dead",
+          "overview": "Dane ‘Marbles’ Marbeck can see ghosts, thanks to a homemade drug: his late father’s neurological medication mixed with marijuana.  Officer Jayson Tagg, a wannabe super-cop on the trail of a serial killer, ends up murdered.  So when Marbles’ mum plans to sell the family farm, and the only way of buying the house off her is taking the money offered by Tagg in exchange for his help, Marbles accepts.  The unlikely duo of stoner medium and ghost cop struggle to reconcile their differences while they navigate their way through ghouls, perverts, a mysterious hooded figure, and an unexpected shot at love.  It becomes clear the only way Marbles and Tagg will solve the case with their souls intact is to confront their deepest regrets and overcome their prejudices.",
+          "popularity": 9.274,
+          "poster_path": "/eu40V59ULl92GIWfRGLAuzu5EYb.jpg",
+          "release_date": "2020-10-22",
+          "title": "Dead",
+          "video": false,
+          "vote_average": 6.4,
+          "vote_count": 63
+        },
+        {
+          "adult": false,
+          "backdrop_path": "/1FxG2lmDYsCM1svJf7H79HNNwu2.jpg",
+          "created_by": [
+            {
+              "id": 64785,
+              "credit_id": "65bc158e1fd36f0163727aa8",
+              "name": "Mark L. Smith",
+              "original_name": "Mark L. Smith",
+              "gender": 2,
+              "profile_path": "/d3OP4zzXT2PFk8egnlEkta1gzRR.jpg"
+            }
+          ],
+          "episode_run_time": [],
+          "first_air_date": "2025-01-09",
+          "genres": [
+            {
+              "id": 37,
+              "name": "Western"
+            },
+            {
+              "id": 18,
+              "name": "Drama"
+            },
+            {
+              "id": 10759,
+              "name": "Action & Adventure"
+            }
+          ],
+          "homepage": "https://www.netflix.com/title/81457507",
+          "id": 215866,
+          "in_production": false,
+          "languages": [
+            "en"
+          ],
+          "last_air_date": "2025-01-09",
+          "last_episode_to_air": {
+            "id": 4091806,
+            "name": "Episode 6",
+            "overview": "Ignoring the danger, Isaac sets out to rescue Sara. Jacob's search for Abish comes to an end. Bridger celebrates before saying good-bye.",
+            "vote_average": 8,
+            "vote_count": 1,
+            "air_date": "2025-01-09",
+            "episode_number": 6,
+            "episode_type": "finale",
+            "production_code": "",
+            "runtime": 53,
+            "season_number": 1,
+            "show_id": 215866,
+            "still_path": "/ur3yBm2TC475elsfSBU02jv0pRc.jpg"
+          },
+          "name": "American Primeval",
+          "next_episode_to_air": null,
+          "networks": [
+            {
+              "id": 213,
+              "logo_path": "/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+              "name": "Netflix",
+              "origin_country": ""
+            }
+          ],
+          "number_of_episodes": 6,
+          "number_of_seasons": 1,
+          "origin_country": [
+            "US"
+          ],
+          "original_language": "en",
+          "original_name": "American Primeval",
+          "overview": "A mother and son fleeing from their past form a found family while confronting a harsh landscape of freedom and cruelty in the American West.",
+          "popularity": 502.089,
+          "poster_path": "/ff0s9OHGNSZL6cVteIb7LNvTnJD.jpg",
+          "production_companies": [
+            {
+              "id": 20153,
+              "logo_path": null,
+              "name": "Film 44",
+              "origin_country": "US"
+            },
+            {
+              "id": 156880,
+              "logo_path": "/jyHwJYa76aHLLS9Sg9c5LiOLcDQ.png",
+              "name": "Grand Electric",
+              "origin_country": "US"
+            }
+          ],
+          "production_countries": [
+            {
+              "iso_3166_1": "US",
+              "name": "United States of America"
+            }
+          ],
+          "seasons": [
+            {
+              "air_date": "2025-01-09",
+              "episode_count": 6,
+              "id": 319151,
+              "name": "Limited Series",
+              "overview": "",
+              "poster_path": "/jNzMVslxAUfjXLWzt0A1RwLXLMf.jpg",
+              "season_number": 1,
+              "vote_average": 8.2
+            }
+          ],
+          "spoken_languages": [
+            {
+              "english_name": "English",
+              "iso_639_1": "en",
+              "name": "English"
+            }
+          ],
+          "status": "Ended",
+          "tagline": "No one survives alone.",
+          "type": "Miniseries",
+          "vote_average": 7.5,
+          "vote_count": 61
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "username": "user_5",
+      "email": "user5@gmail.com",
+      "password": "password5",
+      "role": "user",
+      "watchlist": [],
+      "watched": []
     }
   ]
 }
