@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './pages/user/Home';
 import Registration from './pages/user/form/Registration';
 import Login from './pages/user/form/Login';
@@ -38,7 +38,7 @@ const App = () => {
     <>
     <GlobalStyle />
     <GlobalProvider>
-      <Router>
+      <BrowserRouter>
         <Routes>
           {!isAuthenticated ? (
             <>
@@ -80,7 +80,7 @@ const App = () => {
             </>
           )}
         </Routes>
-      </Router>
+      </BrowserRouter>
     </GlobalProvider>
     </>
   );
